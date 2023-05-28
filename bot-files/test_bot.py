@@ -28,7 +28,6 @@ def run_discord_bot():
     async def on_message(message):
         if message.author == bot.user:
             return
-
         username = str(message.author)
         user_message = str(message.content)
         channel = str(message.channel)
@@ -39,13 +38,37 @@ def run_discord_bot():
             image_url = "https://cdn.discordapp.com/attachments/1112267773679255552/1112467523770789959/image.png"
             embed = discord.Embed()
             embed.set_image(url=image_url)
+            embed.color = discord.Color.yellow()
+            embed.description = '**WOOF!**' 
             await message.channel.send(embed=embed)
-        elif user_message.startswith('?'):
-            user_message = user_message[1:]
+        elif re.search(r'\btreat\b', user_message, re.IGNORECASE):
+            image_url = "https://cdn.discordapp.com/attachments/1112267773679255552/1112467523770789959/image.png"
+            embed = discord.Embed()
+            embed.set_image(url=image_url)
+            embed.color = discord.Color.yellow()
+            embed.description = '*`... Mochi perks up at the word treat ...`*'  # Set the description
+            await message.channel.send(embed=embed)
             await send_message(message, user_message, is_private=True)
+        elif re.search(r'\bsquirrel\b', user_message, re.IGNORECASE):
+            image_url = "https://cdn.discordapp.com/attachments/1112267773679255552/1112467523770789959/image.png"
+            embed = discord.Embed()
+            embed.set_image(url=image_url)
+            embed.color = discord.Color.yellow()
+            embed.description = '***`... MOCHI PERFORMS THE ZOOMIES ...`***' 
+            await message.channel.send(embed=embed)
         else:
             await send_message(message, user_message, is_private=False)
+            await bot.process_commands(message)  # Process commands after checking messages
 
         await bot.process_commands(message)  # Process commands after checking messages
+
+    @bot.command()
+    async def treat(ctx):
+        image_url = "https://cdn.discordapp.com/attachments/1112267773679255552/1112467523770789959/image.png"
+        embed = discord.Embed()
+        embed.set_image(url=image_url)
+        embed.color = discord.Color.yellow()
+        embed.description = '**`... Mochi happily eats her treat ...`**'
+        await ctx.send(embed=embed)
 
     bot.run(TOKEN)

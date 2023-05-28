@@ -4,9 +4,10 @@ def get_response(message: str) -> str:
     message = message.lower()
 
     if message == 'hello':
-        return 'Woof!'
+        greeting = '**WOOF!**\n*`... Mochi appears to be greeting you ...`*\n'
+        return greeting
 
-    if message == 'roll':
+    if message == 'how pretty am i?':
         return str(random.randint(1, 6))
 
     if message == '!help':
@@ -17,3 +18,6 @@ def get_response(message: str) -> str:
 
     if message == 'good girl':
         return 'WOOF WOOF!'
+
+    if message == 'sit':
+        return '**`Mochi sits begrudgingly, awaiting a treat.`**'
