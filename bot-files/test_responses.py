@@ -10,9 +10,6 @@ def get_response(message: str) -> str:
     if message == 'how pretty am i?':
         return str(random.randint(1, 6))
 
-    if message == '!help':
-        return '`This is a help message you can modify`'
-
     if message == 'mochi':
         return 'woof?'
 
