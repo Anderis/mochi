@@ -62,10 +62,46 @@ def run_discord_bot():
 
     @bot.command(name='mochihelp')
     async def mochihelp_command(ctx):
-        embed = discord.Embed(title='Mochi Bot Help', description='List of available commands:', color=discord.Color.yellow())
-        embed.add_field(name='Commands:', value='**!mochihelp** - Help Document\n**!treat**', inline=False)
-        embed.add_field(name='Type !mochihelp command', value='for more info on a command.\nYou can also type !mochihelp category for more info on a category.')
+        embed = discord.Embed(title='MOCHI TO THE RESCUE!', description='List of available commands & phrases:', color=discord.Color.yellow())
+
+        # Commands
+      
+        commands_field = "A command can only be run standalone and must begin with a \"!\".\n"
+        commands_field += "```"
+        commands_field += "[!mochihelp]  Help Document.\n"
+        commands_field += "[!givetreat]  Gives Mochi a treat.\n"
+        commands_field += "[!howgay] See how gay you are.\n"
+        commands_field += "[!boop] Boops the snoot.\n"
+        commands_field += "[!sit] Ask Mochi to sit."
+        commands_field += "```"
+
+        embed.add_field(name='__**COMMANDS**__', value=commands_field, inline=False)
+
+        # Trigger Statements
+        statements_field = "Similar to commands, a trigger statement cannot include additional characters. However, it does not need to begin with a \"!\".\n"
+        statements_field += "```"
+        statements_field += "hello\n"
+        statements_field += "mochi\n"
+        statements_field += "good girl\n"
+        statements_field += " "
+        statements_field += "```"
+
+        # Trigger Words
+        words_field = "A trigger word can be used at any point in a sentence without the need for a prefix.\n"
+        words_field += "\n"
+        words_field += "```\n"
+        words_field += "woof\n"
+        words_field += "treat\n"
+        words_field += "squirrel"
+        words_field += "```"
+
+        embed.add_field(name='__**TRIGGER STATEMENTS**__', value=statements_field, inline=True)
+        embed.add_field(name='__**TRIGGER WORDS**__', value=words_field, inline=True)
+
         await ctx.send(embed=embed)
+
+        
+
 
     @bot.command(name='boop')
     async def boop_command(ctx):
@@ -86,7 +122,7 @@ def run_discord_bot():
             await ctx.send(embed=embed)
 
     @bot.command(name='howgay')
-    async def howgay(ctx):
+    async def howgay_command(ctx):
         image_url = "https://media.discordapp.net/attachments/1112267773679255552/1112735249814790204/png_20230407_124312_0000.png?width=509&height=905"
         percentage = str(random.randint(0, 100))
         embed = discord.Embed()
@@ -94,5 +130,12 @@ def run_discord_bot():
         embed.color = discord.Color.yellow()
         embed.description = "*Wise bunny sage Mochi declares that you are .......* **" + percentage + "% GAY!**"
         await ctx.send(embed=embed)
-
+    
+    @bot.command(name='sit')
+    async def sit_command(ctx):
+         #needs image embed added later
+         embed = discord.Embed()
+         embed.color= discord.Color.yellow()
+         embed.description = '**`Mochi sits begrudgingly, awaiting a treat.`**'
+         await ctx.send(embed=embed)
     bot.run(TOKEN)
