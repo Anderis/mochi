@@ -60,7 +60,7 @@ def run_discord_bot():
 
         await bot.process_commands(message)  # Process commands after checking messages
 
-    @bot.command(name='mochihelp')
+    @bot.command(name='mochihelp', aliases=['help'])
     async def mochihelp_command(ctx):
         embed = discord.Embed(title='MOCHI TO THE RESCUE!', description='List of available commands & phrases:', color=discord.Color.yellow())
 
@@ -68,8 +68,8 @@ def run_discord_bot():
       
         commands_field = "A command can only be run standalone and must begin with a \"!\".\n"
         commands_field += "```"
-        commands_field += "[!mochihelp]  Help Document.\n"
-        commands_field += "[!givetreat]  Gives Mochi a treat.\n"
+        commands_field += "[!mochihelp, !help]  Help Document.\n"
+        commands_field += "[!givetreat(s)]  Gives Mochi a treat.\n"
         commands_field += "[!howgay] See how gay you are.\n"
         commands_field += "[!boop] Boops the snoot.\n"
         commands_field += "[!sit] Ask Mochi to sit."
@@ -112,7 +112,7 @@ def run_discord_bot():
             embed.description = '***`... MOCHI ATTACKS!!! ...`***'
             await ctx.send(embed=embed)
 
-    @bot.command(name='givetreat')
+    @bot.command(name='givetreat', aliases=['givetreats'])
     async def givetreat_command(ctx):
             image_url = "https://cdn.discordapp.com/attachments/1112267773679255552/1112974425369878589/202305300010.gif"
             embed = discord.Embed()
