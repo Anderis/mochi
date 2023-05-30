@@ -7,9 +7,6 @@ def get_response(message: str) -> str:
         greeting = '**WOOF!**\n*`... Mochi appears to be greeting you ...`*\n'
         return greeting
 
-    if message == 'how pretty am i?':
-        return str(random.randint(1, 6))
-
     if message == 'mochi':
         return 'woof?'
 
