@@ -73,9 +73,7 @@ def run_discord_bot(bot_token):
         commands_field += "[!howgay] See how gay you are.\n"
         commands_field += "[!boop] Boops the snoot.\n"
         commands_field += "[!sit] Ask Mochi to sit."
-        commands_field += "```"
-
-        embed.add_field(name='__**COMMANDS**__', value=commands_field, inline=False)
+        commands_field += "```\u200b"
 
         # Trigger Statements
         statements_field = "Similar to commands, a trigger statement cannot include additional characters. However, it does not need to begin with a \"!\".\n"
@@ -93,10 +91,11 @@ def run_discord_bot(bot_token):
         words_field += "woof\n"
         words_field += "treat\n"
         words_field += "squirrel"
-        words_field += "```"
+        words_field += "```\n"
 
-        embed.add_field(name='__**TRIGGER STATEMENTS**__', value=statements_field, inline=True)
-        embed.add_field(name='__**TRIGGER WORDS**__', value=words_field, inline=True)
+        embed.add_field(name='__**Commands**__', value=commands_field, inline=False)
+        embed.add_field(name='__**Trigger Statements**__', value=statements_field, inline=True)
+        embed.add_field(name='__**Trigger Words**__', value=words_field, inline=True)
 
         await ctx.send(embed=embed)
 
