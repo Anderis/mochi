@@ -3,6 +3,8 @@ import mochiResponses as responses
 from discord.ext import commands
 import re
 import random
+from dotenv import load_dotenv
+
 async def send_message(message, user_message, is_private):
     try:
         response = responses.get_response(user_message)
@@ -12,14 +14,12 @@ async def send_message(message, user_message, is_private):
     except Exception as e:
         print(e)
 
-def run_discord_bot():
-    TOKEN = 'MTExMTkyOTk3NTY0MjI2MzU2Mg.G4VjeC.u_Hnu2cKB-AH0CprF5Iry3kSJQNPVAofjXc1KA'
+def run_discord_bot(bot_token):
     intents = discord.Intents.default()
     intents.typing = False
     intents.presences = False
     intents.messages = True
     bot = commands.Bot(command_prefix='!', intents=intents.all(), help_command=None)  # Disable the default help command
-
     @bot.event
     async def on_ready():
         print(f'{bot.user} is now running')
@@ -49,7 +49,7 @@ def run_discord_bot():
             await message.channel.send(embed=embed)
             await send_message(message, user_message, is_private=True)
         elif re.search(r'\bsquirrel\b', user_message, re.IGNORECASE):
-            squirrelURL = "https://cdn.discordapp.com/attachments/1113019192342499388/1113980912141598730/fastasfuckboi.gif"
+            squirrelURL = "file:///C:/Users/nully/OneDrive/Documents/GitHub/mochi/bot-files/visuals/gifs/FastGurl.gif"
             embed = discord.Embed()
             embed.set_image(url=squirrelURL)
             embed.color = discord.Color.yellow()
@@ -105,28 +105,28 @@ def run_discord_bot():
 
     @bot.command(name='boop')
     async def boop_command(ctx):
-            image_url = "https://cdn.discordapp.com/attachments/1011343025659727894/1093730940653674496/20230406_195355_1.gif"
+            boopURL = "https://cdn.discordapp.com/attachments/1011343025659727894/1093730940653674496/20230406_195355_1.gif"
             embed = discord.Embed()
-            embed.set_image(url=image_url)
+            embed.set_image(url=boopURL)
             embed.color = discord.Color.yellow()
             embed.description = '***`... MOCHI ATTACKS!!! ...`***'
             await ctx.send(embed=embed)
 
     @bot.command(name='givetreat', aliases=['givetreats'])
     async def givetreat_command(ctx):
-            image_url = "https://cdn.discordapp.com/attachments/1113019192342499388/1113981964437966858/202305300010.gif"
+            giveTreatURL = "https://cdn.discordapp.com/attachments/1113019192342499388/1113981964437966858/202305300010.gif"
             embed = discord.Embed()
-            embed.set_image(url=image_url)
+            embed.set_image(url=giveTreatURL)
             embed.color = discord.Color.yellow()
             embed.description = '**`... Mochi happily eats her treats ...`**'
             await ctx.send(embed=embed)
 
     @bot.command(name='howgay')
     async def howgay_command(ctx):
-        image_url = "https://media.discordapp.net/attachments/1112267773679255552/1112735249814790204/png_20230407_124312_0000.png?width=509&height=905"
+        howGayURL = "https://media.discordapp.net/attachments/1112267773679255552/1112735249814790204/png_20230407_124312_0000.png?width=509&height=905"
         percentage = str(random.randint(0, 101))
         embed = discord.Embed()
-        embed.set_image(url=image_url)
+        embed.set_image(url=howGayURL)
         embed.color = discord.Color.yellow()
         embed.description = "```Wise bunny sage Mochi declares that you are ....```\n **" + percentage + "% GAY!**"
         await ctx.send(embed=embed)
@@ -138,22 +138,15 @@ def run_discord_bot():
          embed.color= discord.Color.yellow()
          embed.description = '**`Mochi sits begrudgingly, awaiting a treat.`**'
          await ctx.send(embed=embed)
-
-    @bot.command(name='fuckoff')
-    async def fuckoff_command(ctx):
-        #needs image embed added later
-        embed = discord.Embed()
-        embed.color= discord.Color.yellow()
-        embed.description = '**`Oi; Fuck-Off mate.`**'
-        await ctx.send(embed=embed)
     
     @bot.command(name='test')
     async def test(ctx):
-        image_url = "https://media.discordapp.net/attachments/1112267773679255552/1112735249814790204/png_20230407_124312_0000.png?width=509&height=905"
+        testURL = "https://media.discordapp.net/attachments/1112267773679255552/1112735249814790204/png_20230407_124312_0000.png?width=509&height=905"
         percentage = str(random.randint(0, 101))
         embed = discord.Embed()
-        embed.set_image(url=image_url)
+        embed.set_image(url=testURL)
         embed.color = discord.Color.yellow()
         embed.description = "**`Oi; Fuck-Off mate.`**" + percentage
         await ctx.send(embed=embed)
-    bot.run(TOKEN)
+
+    bot.run(bot_token)
