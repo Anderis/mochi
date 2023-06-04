@@ -34,24 +34,24 @@ def run_discord_bot():
         print(f'{username} said: "{user_message}" ({channel})')
 
         if re.search(r'\bwoof\b', user_message, re.IGNORECASE):
-            image_url = "https://cdn.discordapp.com/attachments/1112267773679255552/1112467523770789959/image.png"
+            woofUrl = "https://cdn.discordapp.com/attachments/1112267773679255552/1112467523770789959/image.png"
             embed = discord.Embed()
-            embed.set_image(url=image_url)
+            embed.set_image(url=woofUrl)
             embed.color = discord.Color.yellow()
             embed.description = '**WOOF!**'
             await message.channel.send(embed=embed)
         elif re.search(r'\btreat\b', user_message, re.IGNORECASE):
-            image_url = "https://cdn.discordapp.com/attachments/1113019192342499388/1113981615480242316/treat.gif"
+            treatURL = "https://cdn.discordapp.com/attachments/1113019192342499388/1113981615480242316/treat.gif"
             embed = discord.Embed()
-            embed.set_image(url=image_url)
+            embed.set_image(url=treatURL)
             embed.color = discord.Color.yellow()
             embed.description = '*`... Mochi perks up at the word treat ...`*'  # Set the description
             await message.channel.send(embed=embed)
             await send_message(message, user_message, is_private=True)
         elif re.search(r'\bsquirrel\b', user_message, re.IGNORECASE):
-            image_url = "https://cdn.discordapp.com/attachments/1113019192342499388/1113980912141598730/fastasfuckboi.gif"
+            squirrelURL = "https://cdn.discordapp.com/attachments/1113019192342499388/1113980912141598730/fastasfuckboi.gif"
             embed = discord.Embed()
-            embed.set_image(url=image_url)
+            embed.set_image(url=squirrelURL)
             embed.color = discord.Color.yellow()
             embed.description = '***`... MOCHI PERFORMS THE ZOOMIES ...`***'
             await message.channel.send(embed=embed)
