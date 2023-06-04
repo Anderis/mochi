@@ -6,6 +6,10 @@ def get_response(message: str) -> str:
     if message == 'hello':
         greeting = '**WOOF!**\n*`... Mochi appears to be greeting you ...`*\n'
         return greeting
+    
+    if message == 'hi':
+        greeting = '**WOOF!**\n*`... Mochi appears to be greeting you ...`*\n'
+        return greeting
 
     if message == 'mochi':
         return 'woof?'

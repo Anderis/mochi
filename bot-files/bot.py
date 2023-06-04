@@ -1,5 +1,5 @@
 import discord
-import test_responses as responses
+import mochiResponses as responses
 from discord.ext import commands
 import re
 import random
@@ -41,7 +41,7 @@ def run_discord_bot():
             embed.description = '**WOOF!**'
             await message.channel.send(embed=embed)
         elif re.search(r'\btreat\b', user_message, re.IGNORECASE):
-            image_url = "https://media.discordapp.net/attachments/1112267773679255552/1112978358599422003/treat.gif"
+            image_url = "https://cdn.discordapp.com/attachments/1113019192342499388/1113981615480242316/treat.gif"
             embed = discord.Embed()
             embed.set_image(url=image_url)
             embed.color = discord.Color.yellow()
@@ -49,7 +49,7 @@ def run_discord_bot():
             await message.channel.send(embed=embed)
             await send_message(message, user_message, is_private=True)
         elif re.search(r'\bsquirrel\b', user_message, re.IGNORECASE):
-            image_url = "https://cdn.discordapp.com/attachments/1112267773679255552/1112994685204578304/giphy_1.gif"
+            image_url = "https://cdn.discordapp.com/attachments/1113019192342499388/1113980912141598730/fastasfuckboi.gif"
             embed = discord.Embed()
             embed.set_image(url=image_url)
             embed.color = discord.Color.yellow()
@@ -114,7 +114,7 @@ def run_discord_bot():
 
     @bot.command(name='givetreat', aliases=['givetreats'])
     async def givetreat_command(ctx):
-            image_url = "https://cdn.discordapp.com/attachments/1112267773679255552/1112974425369878589/202305300010.gif"
+            image_url = "https://cdn.discordapp.com/attachments/1113019192342499388/1113981964437966858/202305300010.gif"
             embed = discord.Embed()
             embed.set_image(url=image_url)
             embed.color = discord.Color.yellow()
@@ -124,11 +124,11 @@ def run_discord_bot():
     @bot.command(name='howgay')
     async def howgay_command(ctx):
         image_url = "https://media.discordapp.net/attachments/1112267773679255552/1112735249814790204/png_20230407_124312_0000.png?width=509&height=905"
-        percentage = str(random.randint(0, 100))
+        percentage = str(random.randint(0, 101))
         embed = discord.Embed()
         embed.set_image(url=image_url)
         embed.color = discord.Color.yellow()
-        embed.description = "*Wise bunny sage Mochi declares that you are .......* **" + percentage + "% GAY!**"
+        embed.description = "```Wise bunny sage Mochi declares that you are ....```\n **" + percentage + "% GAY!**"
         await ctx.send(embed=embed)
     
     @bot.command(name='sit')
@@ -138,4 +138,22 @@ def run_discord_bot():
          embed.color= discord.Color.yellow()
          embed.description = '**`Mochi sits begrudgingly, awaiting a treat.`**'
          await ctx.send(embed=embed)
+
+    @bot.command(name='fuckoff')
+    async def fuckoff_command(ctx):
+        #needs image embed added later
+        embed = discord.Embed()
+        embed.color= discord.Color.yellow()
+        embed.description = '**`Oi; Fuck-Off mate.`**'
+        await ctx.send(embed=embed)
+    
+    @bot.command(name='test')
+    async def test(ctx):
+        image_url = "https://media.discordapp.net/attachments/1112267773679255552/1112735249814790204/png_20230407_124312_0000.png?width=509&height=905"
+        percentage = str(random.randint(0, 101))
+        embed = discord.Embed()
+        embed.set_image(url=image_url)
+        embed.color = discord.Color.yellow()
+        embed.description = "**`Oi; Fuck-Off mate.`**" + percentage
+        await ctx.send(embed=embed)
     bot.run(TOKEN)
